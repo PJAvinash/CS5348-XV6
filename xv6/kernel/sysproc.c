@@ -88,3 +88,10 @@ sys_uptime(void)
   release(&tickslock);
   return xticks;
 }
+
+//return how many read() system calls happend since boot - added by jxp220032
+//getreadcount is defined in proc.c
+int sys_getreadcount(void)
+{
+  return getreadcount(); 
+}
