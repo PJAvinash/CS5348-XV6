@@ -58,9 +58,17 @@ sys_dup(void)
   return fd;
 }
 
+void incrementreadcount()
+{
+  acquire(&readcountlock);
+  readcount++;
+  release(&readcountlock);
+}
+
 int
 sys_read(void)
 {
+  incrementreadcount();
   struct file *f;
   int n;
   char *p;

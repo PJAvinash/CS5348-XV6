@@ -109,6 +109,9 @@ void            userinit(void);
 int             wait(void);
 void            wakeup(void*);
 void            yield(void);
+int             getreadcount(void);  // added by jxp220032
+extern uint     readcount; 
+extern struct spinlock readcountlock;// end of changes
 
 // swtch.S
 void            swtch(struct context**, struct context*);
@@ -138,6 +141,10 @@ int             argstr(int, char**);
 int             fetchint(struct proc*, uint, int*);
 int             fetchstr(struct proc*, uint, char**);
 void            syscall(void);
+
+
+
+
 
 // timer.c
 void            timerinit(void);

@@ -443,4 +443,16 @@ procdump(void)
   }
 }
 
+//added by jxp220032
+uint readcount = 0;
+struct spinlock readcountlock;
+int getreadcount(void)
+{
+  uint readcalls;
+  acquire(&readcountlock);
+  readcalls = readcount;
+  release(&readcountlock);
+  return readcalls;
+}
+
 
