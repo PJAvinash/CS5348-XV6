@@ -58,7 +58,7 @@ sys_dup(void)
   return fd;
 }
 
-void incrementreadcount()
+void incrementreadcount(void)
 {
   acquire(&readcountlock);
   readcount++;
