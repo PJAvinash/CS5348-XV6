@@ -110,6 +110,7 @@ int             wait(void);
 void            wakeup(void*);
 void            yield(void);
 int             getreadcount(void);  // added by jxp220032
+void            initreadcountlock(void);
 extern uint     readcount; 
 extern struct spinlock readcountlock;// end of changes
 
