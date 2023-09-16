@@ -444,9 +444,13 @@ procdump(void)
 }
 
 //added by jxp220032
-uint readcount = 0;
+uint readcount;
 struct spinlock readcountlock;
-initlock(&readcountlock, "readcountlock");
+void initreadcountlock(void)
+{
+  readcount = 0;
+  initlock(&readcountlock, "readcountlock");
+}
 int getreadcount(void)
 {
   uint readcalls;

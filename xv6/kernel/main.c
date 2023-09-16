@@ -21,7 +21,7 @@ main(void)
   lapicinit(mpbcpu());
   seginit();       // set up segments
   kinit();         // initialize memory allocator
-  jmpkstack();       // call mainc() on a properly-allocated stack 
+  jmpkstack();     // call mainc() on a properly-allocated stack 
 }
 
 void
@@ -50,6 +50,7 @@ mainc(void)
   kvmalloc();      // initialize the kernel page table
   pinit();         // process table
   tvinit();        // trap vectors
+  initreadcountlock();//added by jxp220032
   binit();         // buffer cache
   fileinit();      // file table
   iinit();         // inode cache
